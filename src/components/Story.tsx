@@ -1,7 +1,10 @@
 import React from 'react';
 import { Heart, Users, Award, Clock } from 'lucide-react';
+import useScrollAnimation from '../hooks/useScrollAnimation'; // chemin selon ton arborescence
 
 const Story = () => {
+  const [ref, isVisible] = useScrollAnimation();
+
   const values = [
     {
       icon: Heart,
@@ -26,95 +29,123 @@ const Story = () => {
   ];
 
   return (
-    <section id="story" className="py-20 bg-white">
+    <section
+      id="story"
+      ref={ref}
+      className={`py-20 bg-gradient-to-r from-[#ffffff] to-[#ffffff] transition-opacity duration-700 ${
+        isVisible ? 'animate-slide-up' : 'opacity-0'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 rounded-full px-4 py-2 mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#CD212A] text-white rounded-full px-4 py-2 mb-6">
               <span className="text-2xl">👵</span>
               <span className="font-medium">La Nostra Storia</span>
             </div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              L'Histoire de 
-              <span className="text-red-600 italic block">Nonna Maria</span>
-            </h2>
+
+            <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight">
+              Traiteur italien, épicerie fine à{' '}
+              <span className="text-[#CD212A] italic block">Bouc-Bel-Air 🇮🇹</span>
+            </h4>
 
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p className="text-lg">
-                Tout a commencé en 1958, quand Nonna Maria a quitté son petit village des Pouilles 
-                pour s'installer à Paris avec ses recettes précieusement gardées et sa passion 
-                pour la cuisine authentique italienne.
+                Notre épicerie italienne vous prépare chaque jour des spécialités italiennes.
               </p>
-              
+
               <p>
-                Dans sa petite cuisine, elle préparait chaque jour des pâtes fraîches, pétrissait 
-                la pâte à pizza à la main et concoctait ses sauces avec des tomates San Marzano 
-                importées directement d'Italie. Son secret ? L'amour qu'elle mettait dans chaque plat.
+                Parcourez notre sélection de produits directement importés d'Italie, tels que des huiles d'olive extra vierge, des pâtes artisanales, et des fromages affinés.
               </p>
-              
+
+              <p>N'hésitez pas à faire appel à notre service traiteur.</p>
+
+              <p>Venez nous voir pour choisir parmi nos spécialités :</p>
+
+              <ul className="list-disc list-inside space-y-1">
+                <li>Nos Brunchs</li>
+                <li>Focaccia</li>
+                <li>Pizzas</li>
+                <li>Arancini</li>
+                <li>Bocconcino</li>
+                <li>...</li>
+              </ul>
+
               <p>
-                Aujourd'hui, c'est avec la même passion que nous perpétuons ses traditions. 
-                Nos pâtes sont toujours faites maison, nos pizzas cuites au feu de bois, 
-                et chaque plat raconte l'histoire de notre famille.
+                Et n'oubliez surtout pas nos <span className="italic">dolce</span>, comme nos fabuleux tiramisù ou cannoli !
+              </p>
+
+              <p>
+                Nous avons hâte de vous accueillir et de partager avec vous notre amour pour la gastronomie italienne.
               </p>
             </div>
 
-            <div className="mt-8 p-6 bg-gray-50 rounded-2xl border-l-4 border-red-600">
+            <div className="mt-8 p-6 bg-gray-50 rounded-2xl border-l-4 border-[#CD212A]">
               <blockquote className="text-lg italic text-gray-700">
-                "La cucina è il cuore della casa" - La cuisine est le cœur de la maison
+                "La cucina è il cuore della casa" – La cuisine est le cœur de la maison
               </blockquote>
               <cite className="text-sm text-gray-500 mt-2 block">- Nonna Maria</cite>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-red-600">1958</div>
+                <div className="text-3xl font-bold text-[#008C45]">1958</div>
                 <div className="text-sm text-gray-600">Année de création</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600">3</div>
+                <div className="text-3xl font-bold text-[#CD212A]">3</div>
                 <div className="text-sm text-gray-600">Générations</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-yellow-600">500+</div>
+                <div className="text-3xl font-bold text-[#008C45]">500+</div>
                 <div className="text-sm text-gray-600">Familles servies</div>
               </div>
             </div>
           </div>
 
-          {/* Right Content - Images */}
+          {/* Right Content - Videos */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img
-                  src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
-                  alt="Préparation des pâtes fraîches"
-                  className="w-full h-48 object-cover rounded-2xl shadow-lg"
-                />
-                <img
-                  src="https://images.pexels.com/photos/4253312/pexels-photo-4253312.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                  alt="Cuisine traditionnelle"
-                  className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                />
+                <video className="w-full h-48 object-cover rounded-2xl shadow-lg" autoPlay muted loop playsInline>
+                  <source
+                    src="https://videos.pexels.com/video-files/7008561/7008561-hd_1080_1920_25fps.mp4"
+                    type="video/mp4"
+                  />
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+
+                <video className="w-full h-64 object-cover rounded-2xl shadow-lg" autoPlay muted loop playsInline>
+                  <source
+                    src="https://videos.pexels.com/video-files/3298012/3298012-uhd_1440_2732_25fps.mp4"
+                    type="video/mp4"
+                  />
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
               </div>
+
               <div className="space-y-4 pt-8">
-                <img
-                  src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                  alt="Ambiance du restaurant"
-                  className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                />
-                <img
-                  src="https://images.pexels.com/photos/5490778/pexels-photo-5490778.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
-                  alt="Famille en cuisine"
-                  className="w-full h-48 object-cover rounded-2xl shadow-lg"
-                />
+                <video className="w-full h-64 object-cover rounded-2xl shadow-lg" autoPlay muted loop playsInline>
+                  <source
+                    src="https://videos.pexels.com/video-files/3298481/3298481-uhd_1440_2732_25fps.mp4"
+                    type="video/mp4"
+                  />
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+
+                <video className="w-full h-48 object-cover rounded-2xl shadow-lg" autoPlay muted loop playsInline>
+                  <source
+                    src="https://videos.pexels.com/video-files/6247894/6247894-uhd_1440_2560_24fps.mp4"
+                    type="video/mp4"
+                  />
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
               </div>
             </div>
 
-            {/* Floating Badge */}
-            <div className="absolute -top-4 -right-4 bg-red-600 text-white rounded-full w-20 h-20 flex items-center justify-center font-bold text-lg shadow-xl">
+            {/* Floating badge */}
+            <div className="absolute -top-4 -right-4 bg-[#CD212A] text-white rounded-full w-20 h-20 flex items-center justify-center font-bold text-lg shadow-xl">
               <div className="text-center">
                 <div className="text-2xl">🏆</div>
                 <div className="text-xs">Depuis</div>
@@ -124,24 +155,30 @@ const Story = () => {
           </div>
         </div>
 
-        {/* Values Section */}
-        <div className="mt-20">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Nos Valeurs
+        {/* Values */}
+        <div className="mt-24 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-br from-[#fff8f5] via-[#fff3ec] to-[#ffede3] py-20 rounded-[2rem]">
+          <h3 className="text-4xl font-extrabold text-center text-gray-900 mb-16">
+            Nos <span className="text-[#CD212A]">Valeurs</span>
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
                 <div
                   key={index}
-                  className="text-center p-6 rounded-2xl hover:bg-gray-50 transition-all duration-300 group"
+                  className="bg-white hover:bg-[#f0fdf4] transition-colors duration-300 rounded-xl text-center p-8 border border-[#d1e7dd]"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent size={28} />
+                  <div className="flex items-center justify-center w-16 h-16 mx-auto bg-[#e1f5eb] text-[#008C45] rounded-full mb-5">
+                    <IconComponent size={26} />
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{value.title}</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+
+                  <h4 className="text-md font-semibold text-[#1d3c34] uppercase tracking-wide mb-2">
+                    {value.title}
+                  </h4>
+                  <p className="text-[#5c4930] text-sm leading-relaxed font-light">
+                    {value.description}
+                  </p>
                 </div>
               );
             })}
