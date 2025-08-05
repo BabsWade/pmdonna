@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="min-h-screen relative">
-      {/* Bandeau tricolore en haut */}
+     
       <div className=" w-full " />
 
       <Header />
