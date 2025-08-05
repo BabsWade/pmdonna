@@ -13,9 +13,15 @@ const Order = () => {
       description: 'Commandez en ligne et recevez vos plats à domicile',
       time: '30-45 min',
       action: 'Commander en ligne',
-      link: 'https://pasta-da-nonna.order.app.hd.digital/menus'
     },
     {
+      icon: Clock,
+      title: 'À Emporter',
+      description: 'Commandez par téléphone et récupérez sur place',
+      time: '15-20 min',
+      action: 'Appeler maintenant',
+    },
+     {
       icon: Clock,
       title: 'À Emporter',
       description: 'Commandez par téléphone et récupérez sur place',
