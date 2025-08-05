@@ -204,7 +204,7 @@ const menuItems = {
 {/* Menu Items Grid with Pagination + Swipe */}
 {/* Scrollable horizontal container */}
 {/* Menu Items Grid avec scroll si plus de 6 */}
-<div className="max-h-[1400px] overflow-y-auto pr-2">
+<div className="max-h-[800px] overflow-y-auto pr-2">
   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {menuItems[activeCategory]?.map((item, index) => (
       <div
