@@ -190,7 +190,7 @@ const menuItems = {
 {/* Menu Items Grid - Scroll vertical automatique */}
 {/* Menu Items Grid avec scroll si plus de 6 */}
 <div className="max-h-[800px] overflow-y-auto pr-2">
-<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-full pd-100">
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-full">
 
     {menuItems[activeCategory]?.map((item, index) => (
       <div
