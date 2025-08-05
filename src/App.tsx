@@ -36,14 +36,19 @@ function App() {
 
   return (
     <div className="min-h-screen relative">
+      {/* Bandeau tricolore en haut */}
+      <div className="h-2 w-full bg-gradient-to-r from-green-600 via-white to-red-600" />
+
       <Header />
       <main>
         <Hero />
-        <Menu addToCart={addToCart}
-  removeFromCart={removeFromCart}
-  cart={cart}
-  showModal={showModal}
-  setShowModal={setShowModal}/>
+        <Menu 
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          cart={cart}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
         <Story />
         <Order />
         <Contact />
@@ -54,7 +59,7 @@ function App() {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 bg-[#b58265] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5c4930] transition-all duration-300"
+          className="flex items-center gap-2 bg-gradient-to-r from-green-600 via-white to-red-600 text-black px-6 py-3 rounded-full font-semibold hover:brightness-110 transition-all duration-300 shadow-lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +94,7 @@ function App() {
             </button>
 
             {/* Header fixe */}
-            <div className="flex flex-col gap-6 mb-6 sticky top-0  pt-2 pb-4 z-20 border-b border-gray-200">
+            <div className="flex flex-col gap-6 mb-6 sticky top-0  pt-2 pb-4 z-20 border-b border-gray-200 bg-white">
               <h2 className="text-2xl font-bold text-center">Mon panier</h2>
 
               {/* Total */}
@@ -105,12 +110,10 @@ function App() {
                   €
                 </div>
               )}
-
-              
             </div>
 
             {/* Liste des articles */}
-            <div className="flex-1 overflow-y-auto space-y-4 pr-2 scrollbar-thin scrollbar-thumb-[#b58265]/20 scrollbar-track-transparent">
+            <div className="flex-1 overflow-y-auto space-y-4 pr-2 scrollbar-thin scrollbar-thumb-green-600/30 scrollbar-track-transparent">
               {cart.length === 0 ? (
                 <p className="text-center text-gray-500 mt-10">Votre panier est vide.</p>
               ) : (
@@ -144,13 +147,12 @@ function App() {
             {cart.length > 0 && (
               <div className="mt-6 text-right">
                 <a
-              href="tel:01 23 45 67 89"
-              
-              rel="noopener noreferrer"
-              className="bg-[#b58265] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#5c4930] transition-all duration-300 transform hover:scale-105 shadow-xl text-lg"
-            >
-             Appeler : 01 23 45 67 89
-            </a>
+                  href="tel:01 23 45 67 89"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-green-600 via-white to-red-600 text-black px-8 py-4 rounded-full font-semibold hover:brightness-110 transition-all duration-300 transform hover:scale-105 shadow-xl text-lg"
+                >
+                  Appeler : 01 23 45 67 89
+                </a>
               </div>
             )}
           </div>
