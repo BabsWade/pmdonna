@@ -240,11 +240,12 @@ const menuItems = {
               <span>15-20 min</span>
             </div>
             <button
-              onClick={() => addToCart(item)}
-              className="bg-[#b58265] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#5c4930] transition-colors"
-            >
-              Ajouter au panier
-            </button>
+  onClick={() => addToCart(item)}
+  className="bg-[#CD212A] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#a1111b] transition-colors"
+>
+  Ajouter au panier
+</button>
+
           </div>
         </div>
       </div>
