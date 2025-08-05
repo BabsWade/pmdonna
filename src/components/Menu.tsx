@@ -271,31 +271,7 @@ const menuItems = {
 
 
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#ffefe7] to-[#ffefe7] rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Envie de commander ?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Commandez en ligne ou appelez-nous directement pour réserver votre table
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-  onClick={() => setShowModal(true)}
-  className="bg-[#b58265] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#5c4930] transition-all duration-300 transform hover:scale-105"
->
-  Commander en Ligne
-</button>
-              <a
-                href="tel:+33123456789"
-                className="border-[#5c4930] text-[#5c4930] px-8 py-3 rounded-full font-semibold hover:bg-[#b58265] hover:text-white transition-all duration-300"
-              >
-                Appeler : 01 23 45 67 89
-              </a>
-            </div>
-          </div>
-        </div>
+       
         
         {showModal && (
   <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-start pt-20">
