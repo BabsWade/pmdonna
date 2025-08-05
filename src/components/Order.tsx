@@ -36,14 +36,14 @@ const Order = () => {
     <section
       id="order"
       ref={ref}
-      className={`py-20 bg-gradient-to-r from-green-50 via-white to-red-50 transition-opacity duration-700 ${
+      className={`py-20 bg-white transition-opacity duration-700 ${
         isVisible ? 'animate-slide-up' : 'opacity-1'
       }`}
     >
       <div className="container mx-auto px-4">
-        {/* Header */}
+        {/* En-tête */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-red-600 text-white rounded-full px-4 py-2 mb-4 shadow-md">
+          <div className="inline-flex items-center gap-2 bg-red-600 text-white rounded-full px-4 py-2 mb-4">
             <span className="text-2xl">🇮🇹</span>
             <span className="font-medium">Commande & Livraison</span>
           </div>
@@ -55,21 +55,21 @@ const Order = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Cartes Services */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center border border-gray-100"
+                className="bg-white border border-gray-200 rounded-2xl p-8 text-center"
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 text-green-700 rounded-full mb-6 shadow-sm">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 text-green-700 rounded-full mb-6">
                   <IconComponent size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
-                <div className="flex items-center justify-center gap-2 text-gray-500 font-medium mb-6">
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <div className="flex items-center justify-center gap-2 text-gray-500 mb-6">
                   <Clock size={16} />
                   <span>{service.time}</span>
                 </div>
@@ -79,10 +79,10 @@ const Order = () => {
                     if (service.action === 'Appeler maintenant') {
                       window.location.href = 'tel:+33672128443';
                     } else {
-                      window.open('https://www.example-order.com', '_blank'); // 🔁 Remplace par ton lien réel
+                      window.open('https://www.example-order.com', '_blank'); // Remplace ce lien
                     }
                   }}
-                  className="w-full bg-gradient-to-r from-green-600 to-red-600 text-white px-6 py-3 rounded-full font-semibold hover:brightness-110 transition-all duration-300"
+                  className="w-full bg-red-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-all duration-200"
                 >
                   {service.action}
                 </button>
@@ -91,15 +91,15 @@ const Order = () => {
           })}
         </div>
 
-        {/* Features */}
-        <div className="bg-white rounded-3xl p-10 max-w-4xl mx-auto shadow-xl border border-gray-100">
-          <h3 className="text-3xl font-bold text-[#CD212A] mb-6 text-center">
+        {/* Avantages */}
+        <div className="bg-white border border-gray-200 rounded-2xl p-10 max-w-4xl mx-auto">
+          <h3 className="text-3xl font-bold text-green-700 mb-6 text-center">
             Pourquoi choisir notre service ?
           </h3>
           <ul className="grid sm:grid-cols-2 gap-4 text-[#383525] font-medium">
             {features.map((feature, idx) => (
               <li key={idx} className="flex items-center gap-3">
-                <CheckCircle size={20} className="text-green-600" />
+                <CheckCircle size={20} className="text-green-700" />
                 {feature}
               </li>
             ))}
@@ -109,7 +109,7 @@ const Order = () => {
         {/* Modal Réservation */}
         {isModalOpen && (
           <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4">
-            <div className="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-xl">
+            <div className="bg-white rounded-2xl max-w-lg w-full p-6 relative">
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold"
@@ -119,21 +119,21 @@ const Order = () => {
 
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Faire une réservation</h2>
               <p className="text-gray-600 mb-6">
-                Nous nous réjouissons de vous accueillir bientôt. Utilisez notre système de réservation en ligne pratique ou réservez par téléphone.
+                Nous nous réjouissons de vous accueillir bientôt. Réservez en ligne ou par téléphone.
               </p>
 
               <div className="flex flex-col gap-4">
                 <a
-                  href="https://www.example-reservation.com"
+                  href="https://www.example-reservation.com" // Remplace ce lien
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-600 text-white text-center px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-all duration-300"
+                  className="bg-green-700 text-white text-center px-6 py-3 rounded-full font-semibold hover:bg-green-800 transition-all duration-200"
                 >
                   Réserver en ligne
                 </a>
                 <a
                   href="tel:+33672128443"
-                  className="flex items-center justify-center gap-2 border-2 border-red-600 text-red-600 px-6 py-3 rounded-full font-semibold hover:bg-red-600 hover:text-white transition-all duration-300"
+                  className="flex items-center justify-center gap-2 border-2 border-red-600 text-red-600 px-6 py-3 rounded-full font-semibold hover:bg-red-600 hover:text-white transition-all duration-200"
                 >
                   <Phone size={20} />
                   Appeler +33 6 72 12 84 43
