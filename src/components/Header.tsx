@@ -23,12 +23,7 @@ const Header = () => {
 
   return (
     <>
-      {/* 🇮🇹 Bande Tricolore */}
-      <div className="hidden lg:block h-1 w-full flex">
-        <div className="flex-1 bg-[#008C45]" /> {/* Vert */}
-        <div className="flex-1 bg-white" />      {/* Blanc */}
-        <div className="flex-1 bg-[#CD212A]" /> {/* Rouge */}
-      </div>
+     
 
       {/* Top Info Bar */}
       <div className="hidden lg:block bg-[#008C45] text-white py-2 px-4 text-sm hide-on-mobile">
