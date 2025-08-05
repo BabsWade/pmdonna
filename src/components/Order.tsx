@@ -21,13 +21,6 @@ const Order = () => {
       time: '15-20 min',
       action: 'Appeler maintenant',
     },
-     {
-      icon: Clock,
-      title: 'À Emporter',
-      description: 'Commandez par téléphone et récupérez sur place',
-      time: '15-20 min',
-      action: 'Appeler maintenant',
-    },
   ];
 
   const features = [
@@ -69,7 +62,7 @@ const Order = () => {
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center border border-gray-100"
+                className="bg-white rounded-2xl p-8 text-center border border-gray-100"
               >
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-[#e1f5eb] text-[#008C45] rounded-full mb-6">
                   <IconComponent size={32} />
@@ -86,10 +79,10 @@ const Order = () => {
                     if (service.action === 'Appeler maintenant') {
                       window.location.href = 'tel:+33672128443';
                     } else {
-                      window.open('https://pasta-da-nonna.order.app.hd.digital/menus, '_blank'); // 🔁 à remplacer par ton lien de commande
+                      window.open('https://pasta-da-nonna.order.app.hd.digital/menus', '_blank');
                     }
                   }}
-                  className="w-full bg-[#CD212A] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#a0171f] transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-[#CD212A] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#a0171f] transition-all duration-300"
                 >
                   {service.action}
                 </button>
@@ -98,8 +91,8 @@ const Order = () => {
           })}
         </div>
 
-        {/* Features / Bénéfices */}
-        <div className="bg-white rounded-3xl p-10 max-w-4xl mx-auto shadow-xl">
+        {/* Features */}
+        <div className="bg-white rounded-3xl p-10 max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold text-[#008C45] mb-6 text-center">
             Pourquoi choisir notre service ?
           </h3>
@@ -116,7 +109,7 @@ const Order = () => {
         {/* MODAL : Réserver une table */}
         {isModalOpen && (
           <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4">
-            <div className="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-xl">
+            <div className="bg-white rounded-2xl max-w-lg w-full p-6 relative">
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold"
@@ -131,7 +124,7 @@ const Order = () => {
 
               <div className="flex flex-col gap-4">
                 <a
-                  href="https://www.example-reservation.com" // 🔁 Remplace par ton lien réel
+                  href="https://www.example-reservation.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#008C45] text-white text-center px-6 py-3 rounded-full font-semibold hover:bg-[#006c35] transition-all duration-300"
