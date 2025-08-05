@@ -35,7 +35,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen relative">
+    <div className="relative">
       {/* Bandeau tricolore en haut */}
       <div className="h-2 w-full" />
 
