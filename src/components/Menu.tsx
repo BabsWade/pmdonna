@@ -181,21 +181,24 @@ const menuItems = {
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
-            <button
-              key={category.id}
-             onClick={() => {
-  setActiveCategory(category.id);
-  setCurrentPage(0); // Revenir à la première page quand on change de catégorie
-}}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                activeCategory === category.id
-                  ? 'bg-[#b58265] text-white '
-                  : 'bg-white text-gray-700 hover:bg-[#b58265]  border border-gray-200'
-              }`}
-            >
-              <span className="text-xl">{category.icon}</span>
-              <span>{category.name}</span>
-            </button>
+           /* ...import et setup identiques... */
+
+<button
+  key={category.id}
+  onClick={() => {
+    setActiveCategory(category.id);
+    setCurrentPage(0);
+  }}
+  className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+    activeCategory === category.id
+      ? 'bg-[#CD212A] text-white '
+      : 'bg-white text-gray-700 hover:bg-[#008C45] hover:text-white border border-gray-200'
+  }`}
+>
+  <span className="text-xl">{category.icon}</span>
+  <span>{category.name}</span>
+</button>
+
           ))}
         </div>
 
