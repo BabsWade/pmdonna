@@ -1,4 +1,3 @@
-ici aussi
 import React, { useState, useRef } from 'react';
 import { Clock, Leaf, Star } from 'lucide-react';
 import useScrollAnimation from '../hooks/useScrollAnimation'; // chemin selon ton arborescence
