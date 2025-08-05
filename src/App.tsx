@@ -95,7 +95,7 @@ function App() {
 
             {/* Header fixe */}
             <div className="flex flex-col gap-6 mb-6 sticky top-0  pt-2 pb-4 z-20 border-b border-gray-200 bg-white">
-              <h2 className="flex text-2xl font-bold text-center">Mon panier</h2>
+              <h2 className="block text-2xl font-bold text-center">Mon panier</h2>
 
               {/* Total */}
               {cart.length > 0 && (
