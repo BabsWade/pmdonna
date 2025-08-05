@@ -63,7 +63,7 @@ const Order = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
@@ -86,7 +86,7 @@ const Order = () => {
                     if (service.action === 'Appeler maintenant') {
                       window.location.href = 'tel:+33672128443';
                     } else {
-                      window.open('https://www.example-order.com', '_blank'); // 🔁 à remplacer par ton lien de commande
+                      window.open('https://pasta-da-nonna.order.app.hd.digital/menus '_blank'); // 🔁 à remplacer par ton lien de commande
                     }
                   }}
                   className="w-full bg-[#CD212A] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#a0171f] transition-all duration-300 transform hover:scale-105"
