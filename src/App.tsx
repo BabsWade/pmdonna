@@ -59,7 +59,7 @@ function App() {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 bg-red-600 text-black px-6 py-3 rounded-full font-semibold hover:brightness-110 transition-all duration-300 shadow-lg"
+          className="flex items-center gap-2 bg-red-600 text-white px-6 py-3 rounded-full font-semibold hover:brightness-110 transition-all duration-300 shadow-lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
