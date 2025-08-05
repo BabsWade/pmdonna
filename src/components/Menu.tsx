@@ -1,13 +1,14 @@
+ici aussi
 import React, { useState, useRef } from 'react';
 import { Clock, Leaf, Star } from 'lucide-react';
 import useScrollAnimation from '../hooks/useScrollAnimation'; // chemin selon ton arborescence
 
-const Menu = () => {
+const Menu = ({ cart, addToCart, removeFromCart, showModal, setShowModal }) => {
 
 
-  
-  const [showModal, setShowModal] = useState(false);
-const [cart, setCart] = useState([]);
+
+
+
 
   const [activeCategory, setActiveCategory] = useState('patesfraiches');
 const ITEMS_PER_PAGE = 6;
@@ -44,28 +45,9 @@ const handleSwipe = () => {
     }
   }
 };
-  const addToCart = (item) => {
-  setCart((prevCart) => {
-    const existing = prevCart.find((i) => i.name === item.name);
-    if (existing) {
-      return prevCart.map((i) =>
-        i.name === item.name ? { ...i, quantity: i.quantity + 1 } : i
-      );
-    } else {
-      return [...prevCart, { ...item, quantity: 1 }];
-    }
-  });
-};
 
-  const removeFromCart = (name) => {
-  setCart((prevCart) => {
-    return prevCart
-      .map((item) =>
-        item.name === name ? { ...item, quantity: item.quantity - 1 } : item
-      )
-      .filter((item) => item.quantity > 0);
-  });
-};
+
+
 
 
   const categories = [
@@ -203,12 +185,14 @@ const menuItems = {
        {/* Menu Items Grid with Pagination */}
 {/* Menu Items Grid with Pagination + Swipe */}
 {/* Scrollable horizontal container */}
-<div className="overflow-x-auto pb-4">
-  <div className="flex gap-6 w-max">
+{/* Menu Items Grid - Scroll vertical automatique */}
+{/* Menu Items Grid avec scroll si plus de 6 */}
+<div className="max-h-[800px] overflow-y-auto pr-2">
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {menuItems[activeCategory]?.map((item, index) => (
       <div
         key={index}
-        className="min-w-[300px] max-w-[300px] bg-white rounded-2xl overflow-hidden transition-all duration-300 transform hover:scale-105 group"
+        className="bg-white rounded-2xl overflow-hidden transition-all duration-300 transform hover:scale-105 group flex flex-col min-h-[350px]"
       >
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
@@ -232,23 +216,31 @@ const menuItems = {
               </div>
             )}
           </div>
-          {/* Price */}
           <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-gray-900 font-bold px-3 py-1 rounded-full">
             {item.price}
           </div>
         </div>
 
-        {/* Description */}
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
-          <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
-          <div className="flex items-center justify-between">
+        {/* Content */}
+        <div className="flex flex-col flex-1 p-6">
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              {item.description}
+            </p>
+          </div>
+
+          {/* Footer (bouton aligné en bas) */}
+          <div className="mt-auto flex items-center justify-between pt-4">
             <div className="flex items-center gap-1 text-gray-500 text-sm">
               <Clock size={16} />
               <span>15-20 min</span>
             </div>
-            <button className="bg-[#b58265] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#5c4930] transition-colors">
-              Commander
+            <button
+              onClick={() => addToCart(item)}
+              className="bg-[#b58265] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#5c4930] transition-colors"
+            >
+              Ajouter au panier
             </button>
           </div>
         </div>
@@ -260,141 +252,12 @@ const menuItems = {
 
 
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#ffefe7] to-[#ffefe7] rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Envie de commander ?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Commandez en ligne ou appelez-nous directement pour réserver votre table
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-  onClick={() => setShowModal(true)}
-  className="bg-[#b58265] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#5c4930] transition-all duration-300 transform hover:scale-105"
->
-  Commander en Ligne
-</button>
-              <a
-                href="tel:+33123456789"
-                className="border-[#5c4930] text-[#5c4930] px-8 py-3 rounded-full font-semibold hover:bg-[#b58265] hover:text-white transition-all duration-300"
-              >
-                Appeler : 01 23 45 67 89
-              </a>
-            </div>
-          </div>
-        </div>
+
+
+
         
-        {showModal && (
-  <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-start pt-20">
-    <div className="bg-white rounded-lg shadow-lg w-full max-w-6xl max-h-[90vh] overflow-y-auto p-6 relative">
 
-      {/* Bouton fermer */}
-      <button
-        onClick={() => setShowModal(false)}
-        className="absolute top-4 right-4 text-gray-500 hover:text-black"
-      >
-        ✕
-      </button>
 
-      <h2 className="text-2xl font-bold mb-6">Sélectionnez vos plats</h2>
-
-      {/* Choix de catégorie */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {Object.entries(menuItems).map(([key, value]) => (
-          <button
-            key={key}
-            onClick={() => setActiveCategory(key)}
-            className={`px-4 py-2 rounded-full font-medium border ${
-              activeCategory === key
-                ? 'bg-[#b58265] text-white'
-                : 'bg-white text-gray-700 hover:bg-[#b58265] hover:text-white'
-            }`}
-          >
-            {key.toUpperCase()}
-          </button>
-        ))}
-      </div>
-
-      {/* Plats de la catégorie */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-        {menuItems[activeCategory]?.map((item, index) => (
-          <div key={index} className="bg-gray-100 p-4 rounded-lg">
-            <img
-              src={item.image}
-              alt={item.name}
-              className="h-40 w-full object-cover rounded mb-3"
-            />
-            <h3 className="text-lg font-bold">{item.name}</h3>
-            <p className="text-sm text-gray-600 mb-1">{item.description}</p>
-            <p className="text-gray-800 font-semibold mb-3">{item.price}</p>
-            <button
-              onClick={() => addToCart(item)}
-              className="bg-[#b58265] text-white text-sm px-4 py-2 rounded-full hover:bg-[#5c4930]"
-            >
-              Ajouter
-            </button>
-          </div>
-        ))}
-      </div>
-
-      {/* Commande en cours */}
-      <div className="bg-gray-50 p-4 rounded-lg shadow-inner">
-        <h3 className="text-xl font-bold mb-3">Ma commande :</h3>
-        {cart.length === 0 ? (
-          <p className="text-gray-500">Aucun plat sélectionné.</p>
-        ) : (
-          <ul className="space-y-3">
-            {cart.map((item, idx) => (
-              <li
-                key={idx}
-                className="flex justify-between items-center border-b pb-2"
-              >
-                <div>
-                  <p className="font-semibold">{item.name}</p>
-                  <p className="text-sm text-gray-600">
-                    {item.price} × {item.quantity}
-                  </p>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <button
-                    onClick={() => removeFromCart(item.name)}
-                    className="bg-red-500 text-white rounded-full px-3 py-1 text-sm"
-                  >
-                    –
-                  </button>
-                  <span>{item.quantity}</span>
-                  <button
-                    onClick={() => addToCart(item)}
-                    className="bg-green-500 text-white rounded-full px-3 py-1 text-sm"
-                  >
-                    +
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {cart.length > 0 && (
-          <div className="mt-6 text-right">
-            <button
-              onClick={() => {
-                alert('Commande validée ! 🍝');
-                setCart([]);
-                setShowModal(false);
-              }}
-              className="bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700"
-            >
-              Valider ma commande
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  </div>
-)}
 
       </div>
     </section>
@@ -402,41 +265,3 @@ const menuItems = {
 };
 
 export default Menu;
-
-
-
-{/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#ffefe7] to-[#ffefe7] rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Envie de commander ?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Commandez en ligne ou appelez-nous directement pour réserver votre table
-            </p>
-            {/* Bouton Mon Panier fixe en bas à droite */}
-<div className="fixed bottom-6 right-6 z-50">
-  <button
-    onClick={() => setShowModal(true)} // ou tout autre handler
-    className="flex items-center gap-2 bg-[#b58265] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5c4930] transition-all duration-300"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m13-9l2 9m-5-9V5a1 1 0 10-2 0v4"
-      />
-    </svg>
-    <span>Mon Panier</span>
-  </button>
-</div>
-
-          </div>
-        </div>
