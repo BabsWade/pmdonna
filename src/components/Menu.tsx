@@ -203,12 +203,13 @@ const menuItems = {
        {/* Menu Items Grid with Pagination */}
 {/* Menu Items Grid with Pagination + Swipe */}
 {/* Scrollable horizontal container */}
-<div className="overflow-x-auto pb-4">
-  <div className="flex gap-6 w-max">
+{/* Menu Items Grid avec scroll si plus de 6 */}
+<div className="max-h-[1400px] overflow-y-auto pr-2">
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {menuItems[activeCategory]?.map((item, index) => (
       <div
         key={index}
-        className="min-w-[300px] max-w-[300px] bg-white rounded-2xl overflow-hidden transition-all duration-300 transform hover:scale-105 group"
+        className="bg-white rounded-2xl overflow-hidden transition-all duration-300 transform hover:scale-105 group"
       >
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
@@ -238,10 +239,11 @@ const menuItems = {
           </div>
         </div>
 
-        {/* Description */}
+        {/* Content */}
         <div className="p-6">
           <h3 className="text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
           <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
+
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1 text-gray-500 text-sm">
               <Clock size={16} />
@@ -256,6 +258,7 @@ const menuItems = {
     ))}
   </div>
 </div>
+
 
 
 
