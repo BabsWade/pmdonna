@@ -91,20 +91,6 @@ const Order = () => {
           })}
         </div>
 
-        {/* Avantages */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-10 max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold text-green-700 mb-6 text-center">
-            Pourquoi choisir notre service ?
-          </h3>
-          <ul className="grid sm:grid-cols-2 gap-4 text-[#383525] font-medium">
-            {features.map((feature, idx) => (
-              <li key={idx} className="flex items-center gap-3">
-                <CheckCircle size={20} className="text-green-700" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
 
         {/* Modal Réservation */}
         {isModalOpen && (
