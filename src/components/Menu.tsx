@@ -205,18 +205,19 @@ const menuItems = {
           />
           {/* Badges */}
           <div className="absolute top-4 left-4 flex gap-2">
-            {item.popular && (
-              <div className="bg-[#b58265] text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
-                <Star size={12} />
-                Populaire
-              </div>
-            )}
-            {item.vegetarian && (
-              <div className="bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
-                <Leaf size={12} />
-                Végétarien
-              </div>
-            )}
+           {item.popular && (
+  <div className="bg-[#CD212A] text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+    <Star size={12} />
+    Populaire
+  </div>
+)}
+{item.vegetarian && (
+  <div className="bg-[#008C45] text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+    <Leaf size={12} />
+    Végétarien
+  </div>
+)}
+
           </div>
           <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-gray-900 font-bold px-3 py-1 rounded-full">
             {item.price}
