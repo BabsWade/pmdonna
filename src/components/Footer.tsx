@@ -1,117 +1,99 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Heart, Instagram, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [isLegalOpen, setIsLegalOpen] = useState(false);
 
   return (
-    <footer className="bg-gray-900 text-white">
-      {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold italic mb-4 text-red-400">
-              PASTA DA NONNA
-            </h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Depuis 1958, nous perpétuons les traditions culinaires italiennes 
-              avec passion et authenticité. Chaque plat raconte l'histoire de notre famille.
-            </p>
-            <div className="flex items-center gap-2 text-yellow-400">
-              <span className="flex">
+    <>
+      <footer className="bg-[#2d2b1e] text-white">
+        <div className="container mx-auto px-4 py-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {/* Brand */}
+            <div>
+              <h3 className="text-2xl font-bold italic mb-4 text-white">PASTA DA NONNA</h3>
+              <p className="text-gray-300 leading-relaxed mb-4">
+                Depuis 1958, nous perpétuons les traditions culinaires italiennes 
+                avec passion et authenticité. Chaque plat raconte l'histoire de notre famille.
+              </p>
+              <div className="flex items-center gap-2 text-yellow-400">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-lg">⭐</span>
                 ))}
-              </span>
-              <span className="text-white">4.8/5 sur Google</span>
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6 text-red-400">Contact</h4>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="text-red-400 flex-shrink-0 mt-1" size={18} />
-                <div>
-                  <p className="text-gray-300">123 Rue de la Paix</p>
-                  <p className="text-gray-300">75001 Paris, France</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="text-red-400 flex-shrink-0" size={18} />
-                <a href="tel:+33123456789" className="text-gray-300 hover:text-white transition-colors">
-                  01 23 45 67 89
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="text-red-400 flex-shrink-0" size={18} />
-                <a href="mailto:contact@pastadanonna.fr" className="text-gray-300 hover:text-white transition-colors">
-                  contact@pastadanonna.fr
-                </a>
+                <span className="text-white ml-2">4.9/5 sur Google</span>
               </div>
             </div>
-          </div>
 
-          {/* Horaires */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6 text-red-400">Horaires</h4>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <Clock className="text-red-400 flex-shrink-0" size={18} />
-                <div>
-                  <p className="text-gray-300 font-medium">Mardi - Dimanche</p>
-                  <p className="text-gray-400 text-sm">11h30 - 14h30</p>
-                  <p className="text-gray-400 text-sm">18h30 - 22h30</p>
-                </div>
-              </div>
-              <div className="mt-4 p-3 bg-red-900/30 rounded-lg">
-                <p className="text-red-300 font-medium">Lundi : Fermé</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation & Social */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6 text-red-400">Liens Rapides</h4>
-            <div className="space-y-3 mb-8">
-              <a href="#menu" className="block text-gray-300 hover:text-white transition-colors">
-                Notre Menu
-              </a>
-              <a href="#story" className="block text-gray-300 hover:text-white transition-colors">
-                Notre Histoire
-              </a>
-              <a 
-                href="https://pasta-da-nonna.eatbu.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-white transition-colors"
-              >
-                Commander en Ligne
-              </a>
-              <a href="#contact" className="block text-gray-300 hover:text-white transition-colors">
-                Contact
-              </a>
-            </div>
-
-            {/* Social Links */}
+            {/* Contact Info */}
             <div>
-              <h5 className="font-semibold mb-4 text-emerald-400">Suivez-Nous</h5>
+              <h4 className="text-xl font-semibold mb-6 text-white">Contact</h4>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <MapPin className="text-[#CD212A]" size={18} />
+                  <div className="text-gray-300">
+                    <p>Centre commercial Neptuna, RN8</p>
+                    <p>Av. de Violési, 13320 Bouc-Bel-Air</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="text-[#CD212A]" size={18} />
+                  <a href="tel:+33672128443" className="text-gray-300 hover:text-white transition">
+                    +33 6 72 12 84 43
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="text-[#CD212A]" size={18} />
+                  <a href="mailto:Pastadanonna13@gmail.com" className="text-gray-300 hover:text-white transition">
+                    Pastadanonna13@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Horaires */}
+            <div>
+              <h4 className="text-xl font-semibold mb-6 text-white">Horaires</h4>
+              <div className="space-y-4 text-sm text-gray-300">
+                <div>
+                  <p className="font-semibold text-white">Mardi - Samedi</p>
+                  <p>10h00 - 19h30</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-white">Dimanche</p>
+                  <p>10h00 - 13h00</p>
+                </div>
+                <div className="bg-[#CD212A] text-white px-3 py-2 rounded-lg mt-2 inline-block">
+                  Lundi : Fermé
+                </div>
+              </div>
+            </div>
+
+            {/* Liens & Réseaux */}
+            <div>
+              <h4 className="text-xl font-semibold mb-6 text-white">Liens Rapides</h4>
+              <div className="space-y-3 mb-6 text-sm">
+                <a href="#menu" className="block text-gray-300 hover:text-white transition">Notre Menu</a>
+                <a href="#story" className="block text-gray-300 hover:text-white transition">Notre Histoire</a>
+                <a href="https://pasta-da-nonna.eatbu.com" target="_blank" rel="noopener noreferrer" className="block text-gray-300 hover:text-white transition">Commander en Ligne</a>
+                <a href="#contact" className="block text-gray-300 hover:text-white transition">Contact</a>
+              </div>
+
+              <h5 className="text-white font-semibold mb-4">Suivez-Nous</h5>
               <div className="flex gap-4">
                 <a
                   href="https://www.instagram.com/pastadanonna.mia/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
+                  className="w-10 h-10 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] rounded-full flex items-center justify-center hover:scale-110 transition-all"
                 >
-                  <Instagram size={18} />
+                  <Instagram size={18} className="text-white" />
                 </a>
                 <a
                   href="https://g.co/kgs/UrHYd7K"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 text-sm font-bold"
+                  className="w-10 h-10 bg-white text-[#008C45] font-bold rounded-full flex items-center justify-center hover:scale-110 transition-all text-sm"
                 >
                   G
                 </a>
@@ -119,51 +101,54 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Newsletter */}
-      <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h4 className="text-xl font-semibold mb-2 text-red-400">Newsletter</h4>
-              <p className="text-gray-300">Recevez nos dernières actualités et offres spéciales</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Votre email"
-                className="px-4 py-2 rounded-full text-gray-900 w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <button className="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors whitespace-nowrap">
-                S'abonner
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Footer */}
-      <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-gray-400">
-              <span>&copy; {currentYear} PASTA DA NONNA. Tous droits réservés.</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-400">
+        {/* Bottom */}
+        <div className="border-t border-[#4a4738]">
+          <div className="container mx-auto px-4 py-6 text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>&copy; {currentYear} PASTA DA NONNA. Tous droits réservés.</div>
+            <div className="flex items-center gap-1">
               <span>Fait avec</span>
               <Heart className="text-red-500 fill-current" size={16} />
-              <span>à Paris</span>
+              <span>à Aix-en-Provence</span>
             </div>
-          </div>
-          <div className="mt-4 pt-4 border-t border-gray-800 text-center">
-            <p className="text-gray-500 text-sm">
-              Mentions légales • Politique de confidentialité • CGV
-            </p>
+            <button
+              onClick={() => setIsLegalOpen(true)}
+              className="text-gray-400 hover:underline text-xs"
+            >
+              Mentions légales
+            </button>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+
+      {/* Mentions légales Modal */}
+      {isLegalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center px-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl max-w-xl w-full p-6 relative shadow-xl mt-10 mb-10">
+            <button
+              onClick={() => setIsLegalOpen(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-800 text-2xl font-bold"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Mentions légales</h2>
+            <div className="text-gray-700 text-sm space-y-2">
+              <p><strong>Nom de l'établissement :</strong> PASTA DELLA NONNA</p>
+              <p><strong>Forme juridique :</strong> PASTA DELLA NONNA</p>
+              <p><strong>Prénom :</strong> PHILIPPE</p>
+              <p><strong>Nom :</strong> MARTIN</p>
+              <p><strong>Adresse :</strong> BOUC BEL AIR, 13320, FRANCE</p>
+              <p><strong>Téléphone :</strong> +33 6 06 48 10 35</p>
+              <p><strong>Email :</strong> philippemartin92@sfr.fr</p>
+              <p><strong>Registre :</strong> 0</p>
+              <p><strong>Numéro d'enregistrement :</strong> 0</p>
+              <p><strong>Numéro fiscal local :</strong> 0</p>
+              <p><strong>Capital social :</strong> 0</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
