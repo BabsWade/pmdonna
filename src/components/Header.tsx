@@ -23,8 +23,15 @@ const Header = () => {
 
   return (
     <>
+      {/* 🇮🇹 Bande Tricolore */}
+      <div className="hidden lg:block h-1 w-full flex">
+        <div className="flex-1 bg-[#008C45]" /> {/* Vert */}
+        <div className="flex-1 bg-white" />      {/* Blanc */}
+        <div className="flex-1 bg-[#CD212A]" /> {/* Rouge */}
+      </div>
+
       {/* Top Info Bar */}
-      <div className="bg-emerald-700 text-white py-2 px-4 text-sm">
+      <div className="hidden lg:block bg-[#008C45] text-white py-2 px-4 text-sm hide-on-mobile">
         <div className="container mx-auto flex flex-wrap justify-center md:justify-between items-center gap-4">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
@@ -46,17 +53,19 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <header className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-      }`}>
+      <header
+        className={`fixed top-0 w-full z-50 pt-[25px] transition-all duration-300 ${
+          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        }`}
+      >
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <h1 className={`text-2xl md:text-3xl font-bold italic transition-colors duration-300 ${
-                isScrolled ? 'text-emerald-700' : 'text-white'
+              <h1 className={`text-2xl md:text-2xl font-bold italic transition-colors duration-300 ${
+                isScrolled ? 'text-[#CD212A]' : 'text-white'
               }`}>
-                PASTA DA NONNA
+                PASTA <span className="text-[#008C45]">DA NONNA MIA</span>
               </h1>
               <p className={`text-sm italic transition-colors duration-300 ${
                 isScrolled ? 'text-gray-600' : 'text-white/90'
@@ -71,7 +80,7 @@ const Header = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(['hero', 'menu', 'story', 'order', 'contact'][index])}
-                  className={`font-medium hover:text-red-600 transition-colors duration-300 ${
+                  className={`font-medium hover:text-[#008C45] transition-colors duration-300 ${
                     isScrolled ? 'text-gray-800' : 'text-white'
                   }`}
                 >
@@ -79,10 +88,10 @@ const Header = () => {
                 </button>
               ))}
               <a
-                href="https://pasta-da-nonna.eatbu.com"
+                href="https://pasta-da-nonna.order.app.hd.digital/menus"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-[#CD212A] text-white px-6 py-2 rounded-full hover:bg-[#a1111b] transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Commander
               </a>
@@ -108,7 +117,7 @@ const Header = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(['hero', 'menu', 'story', 'order', 'contact'][index])}
-                  className="block w-full text-left text-gray-800 font-medium hover:text-red-600 transition-colors py-2"
+                  className="block w-full text-left text-gray-800 font-medium hover:text-[#008C45] transition-colors py-2"
                 >
                   {item}
                 </button>
@@ -117,7 +126,7 @@ const Header = () => {
                 href="https://pasta-da-nonna.eatbu.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-red-600 text-white text-center px-6 py-3 rounded-full hover:bg-red-700 transition-all duration-300 mt-4"
+                className="block bg-[#CD212A] text-white text-center px-6 py-3 rounded-full hover:bg-[#a1111b] transition-all duration-300 mt-4"
               >
                 Commander Maintenant
               </a>
