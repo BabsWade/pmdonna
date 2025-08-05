@@ -149,7 +149,7 @@ function App() {
                 <a
                   href="tel:01 23 45 67 89"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-green-600 via-white to-red-600 text-black px-8 py-4 rounded-full font-semibold hover:brightness-110 transition-all duration-300 transform hover:scale-105 shadow-xl text-lg"
+                  className="bg-green-600 text-white px-8 py-4 rounded-full font-semibold hover:brightness-110 transition-all duration-300 transform hover:scale-105 shadow-xl text-lg"
                 >
                   Appeler : 01 23 45 67 89
                 </a>
